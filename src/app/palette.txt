@@ -1,0 +1,15 @@
+Palette:
+    Carbon Black (#1C1C1C): Dark background, light text.
+    Deep Wallnut (#49301A): Dark accent background, light accent text.
+    Stormy Teal (#066666): Accents and links.
+    Dark Cyan (#339993): Accents and links.
+    Vanilla Custard (#E3D6A1): Light accent background, dark accent text.
+    Snow (#FFFAFB): Light background, dark text.
+
+Fonts:
+    Alegreya: Highlights and titles.
+    Atkinson Hyperlegible: Main body.
+
+Logo:
+    Light logo always on Carbon Black (#1C1C1C).
+    Dark logo always on Snow (#FFFAFB).
