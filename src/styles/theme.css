@@ -1,8 +1,43 @@
 @theme {
-  --ink: #1c1c1c;
+  /* Brand primitives */
+  --carbon: #1c1c1c;
   --walnut: #49301a;
   --teal: #066666;
   --cyan: #339993;
   --custard: #e3d6a1;
   --snow: #fffafb;
+
+}
+
+:root {
+  --background: var(--snow);
+  --foreground: var(--carbon);
+
+  --surface: var(--snow);
+  --surface-dark: var(--carbon);
+
+  --primary: var(--teal);
+  --primary-hover: var(--cyan);
+
+  --secondary: var(--walnut);
+  --accent: var(--custard);
+
+  --text-primary: var(--carbon);
+  --text-dark: var(--snow);
+}
+
+@theme inline {
+  --colour-background: var(--background);
+  --colour-foreground: var(--foreground);
+
+  --colour-surface: var(--surface);
+  --colour-surface-dark: var(--surface-dark);
+
+  --colour-primary: var(--primary);
+  --colour-primary-hover: var(--primary-hover);
+  --colour-secondary: var(--secondary);
+  --colour-accent: var(--accent);
+
+  --colour-text-primary: var(--text-primary);
+  --colour-text-dark: var(--text-dark);
 }

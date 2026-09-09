@@ -24,7 +24,7 @@ export default function Home() {
         </div>
 
         <div className="table-scene" role="img" aria-label="Logotip de Rol Tramuntana sobre papers de joc i daus polièdrics">
-          <div className="logo-disc"><Image src="/logo_b_trans.png" alt="" width={833} height={901} priority /></div>
+          <div className="logo-disc"><Image src="/brand/logo_b_trans.svg" alt="" width={833} height={901} priority /></div>
           <div className="poly-die die-d20"><div className="die-art d20-art"><img src="/coloured_d20.png?rev=3" alt="" className="d20-image" /><span className="d20-number" aria-hidden="true">20</span></div></div>
           <div className="poly-die die-d10"><div className="die-art d10-art"><img src="/coloured_d10.png?rev=3" alt="" className="d10-image" /><span className="d10-number" aria-hidden="true">10</span></div></div>
         </div>

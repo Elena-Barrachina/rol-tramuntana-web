@@ -9,8 +9,11 @@ const atkinson = Atkinson_Hyperlegible({
 });
 
 export const metadata: Metadata = {
-  title: "Rol Tramuntana | Associació cultural de rol",
-  description: "Rol Tramuntana, una comunitat per jugar, imaginar i compartir històries.",
+  title: {
+    default: "Rol Tramuntana",
+    template: "%s | Rol Tramuntana",
+  },
+  description: "Associació Cultural de Rol Tramuntana - Lleida",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

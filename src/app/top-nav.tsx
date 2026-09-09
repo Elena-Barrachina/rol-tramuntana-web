@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-type Section = "home" | "qui-som" | "arxiu" | "contacte";
+type Section = "home" | "qui-som" | "activitats" | "arxiu" | "contacte";
 
 const sections: Array<{ href: string; label: string; id: Section }> = [
   { href: "/", label: "Rol Tramuntana", id: "home" },
   { href: "/qui-som", label: "Qui Som", id: "qui-som" },
+  { href: "/activitats", label: "Activitats", id: "activitats" },
   { href: "/arxiu", label: "Arxiu", id: "arxiu" },
   { href: "/contacte", label: "Contacte", id: "contacte" },
 ];
