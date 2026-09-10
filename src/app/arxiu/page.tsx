@@ -1,59 +1,35 @@
 /* eslint-disable @next/next/no-img-element */
-import { TopNav } from "../top-nav";
 import { instagramPosts, type InstagramPost } from "@/data/instagram-posts";
+import { TopNav } from "../top-nav";
 
-const mobileRows = Array.from({ length: 11 }, () => 2);
-const desktopGridSizes = [6, 5, 4, 3];
+const slots = Array.from({ length: 20 }, (_, index) => instagramPosts[index]);
 
-function rowsFor(columns: number) {
-  return Array.from({ length: 7 }, (_, index) => index % 2 === 0 ? columns : columns - 1);
+function EmptyPost({ index }: { index: number }) {
+  return <button className="post-card post-card--empty" type="button" aria-label={`Espai reservat per a la publicació ${index + 1}`}><span>Publicació pendent</span></button>;
 }
 
-function EmptyHexagon() {
-  return <button className="archive-hexagon" type="button" aria-label="Espai per a una publicació d&apos;Instagram" />;
-}
-
-function PostHexagon({ post }: { post: InstagramPost }) {
+function InstagramPost({ post }: { post: InstagramPost }) {
   return (
-    <a className="archive-hexagon archive-hexagon--post" href={post.permalink} target="_blank" rel="noreferrer" aria-label={`Obre a Instagram: ${post.title}`}>
-      <span className="archive-post-frame"><img src={post.image} alt="" /></span>
-      <span className="archive-post-title">{post.title}</span>
+    <a className="post-card" href={post.permalink} target="_blank" rel="noreferrer" aria-label={`Obre a Instagram: ${post.title}`}>
+      <img src={post.image} alt="" />
+      <span>{post.title}</span>
     </a>
-  );
-}
-
-function HexagonRows({ rows, variant, posts }: { rows: number[]; variant: string; posts: InstagramPost[] }) {
-  let postIndex = 0;
-
-  return (
-    <div className={`archive-hex-grid archive-hex-grid--${variant}`}>
-      {rows.map((columns, rowIndex) => (
-        <div className={`archive-hex-row archive-hex-row--${columns}${rowIndex % 2 ? " archive-hex-row--inset" : ""}`} key={`${variant}-${rowIndex}`}>
-          {Array.from({ length: columns }, (_, index) => {
-            const post = posts[postIndex++];
-            return post ? <PostHexagon key={index} post={post} /> : <EmptyHexagon key={index} />;
-          })}
-        </div>
-      ))}
-    </div>
   );
 }
 
 export default function ArxiuPage() {
   return (
-    <main className="main-surface archive-surface">
+    <main className="main-surface">
       <TopNav current="arxiu" />
-      <section className="archive-feed" aria-labelledby="page-title">
-        <div className="archive-heading">
-          <p className="eyebrow">Rol Tramuntana</p>
+      <section className="inner-page archive" aria-labelledby="page-title">
+        <div className="window-title">roltramuntana.cat :: arxiu</div>
+        <div className="page-copy">
+          <p className="eyebrow">ROL TRAMUNTANA</p>
           <h1 id="page-title">Arxiu</h1>
-          <p>Aquí trobaràs un recull de les publicacipons i noticies més recents de l&apos;associació.</p>
+          <p>Aquí trobaràs un recull de les publicacions i notícies més recents de l&apos;associació.</p>
         </div>
-        <div className="archive-gallery">
-          {desktopGridSizes.map((columns) => (
-            <HexagonRows key={columns} rows={rowsFor(columns)} variant={`desktop archive-hex-grid--${columns}`} posts={instagramPosts} />
-          ))}
-          <HexagonRows rows={mobileRows} variant="mobile" posts={instagramPosts} />
+        <div className="post-grid" aria-label="Publicacions d&apos;Instagram">
+          {slots.map((post, index) => post ? <InstagramPost key={index} post={post} /> : <EmptyPost key={index} index={index} />)}
         </div>
       </section>
     </main>
