@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Fragment } from "react";
 
 type Section = "home" | "qui-som" | "activitats" | "arxiu" | "contacte";
 
@@ -14,12 +15,12 @@ export function TopNav({ current }: { current?: Section }) {
   return (
     <nav className="top-nav" aria-label="Navegació principal">
       {sections.map((section, index) => (
-        <span className="top-nav-item" key={section.id}>
+        <Fragment key={section.id}>
           {index > 0 && <span className="top-nav-separator" aria-hidden="true">·</span>}
           <Link href={section.href} aria-current={current === section.id ? "page" : undefined}>
             {section.label}
           </Link>
-        </span>
+        </Fragment>
       ))}
     </nav>
   );
