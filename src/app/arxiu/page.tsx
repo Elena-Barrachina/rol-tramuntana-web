@@ -21,8 +21,8 @@ export default function ArxiuPage() {
   return (
     <main className="main-surface">
       <TopNav current="arxiu" />
+      <div className="window-title">roltramuntana.cat :: arxiu</div>
       <section className="inner-page archive" aria-labelledby="page-title">
-        <div className="window-title">roltramuntana.cat :: arxiu</div>
         <p className="eyebrow">Rol Tramuntana</p>
         <h1 id="page-title">Arxiu</h1>
         <p>Aquí trobaràs un recull de les publicacions i notícies més recents de l&apos;associació.</p>

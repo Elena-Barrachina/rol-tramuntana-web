@@ -45,14 +45,8 @@ function normalisePhone(value: string) {
   return value.replace(/[\s().-]/g, "");
 }
 
-function isValidPhoneNumber(prefix: string, phone: string) {
-  if (!/^\+\d{1,3}$/.test(prefix)) return false;
-
-  const digits = normalisePhone(phone);
-  if (!/^\d+$/.test(digits)) return false;
-  if (prefix === "+34") return /^[6789]\d{8}$/.test(digits);
-
-  return digits.length >= 4 && digits.length <= 15 - (prefix.length - 1);
+function isValidPhoneNumber(phone: string) {
+  return /^[6789]\d{8}$/.test(normalisePhone(phone));
 }
 
 function isValidBirthDate(value: string) {
@@ -110,13 +104,12 @@ export async function POST(request: Request) {
   const dniNie = readText(formData.get("dniNie"), 12);
   const birthDate = readText(formData.get("birthDate"), 10);
   const email = readText(formData.get("email"), 254);
-  const phonePrefix = readText(formData.get("phonePrefix"), 4);
   const phone = readText(formData.get("phone"), 30);
   const honeypot = readText(formData.get("website"), 100);
 
   if (honeypot) return NextResponse.json({ message: "Inscripció enviada." });
 
-  if (!name || !surnames || !dniNie || !birthDate || !email || !phonePrefix || !phone) {
+  if (!name || !surnames || !dniNie || !birthDate || !email || !phone) {
     return NextResponse.json({ message: "Omple tots els camps obligatoris." }, { status: 400 });
   }
   if (!isValidName(name) || !isValidName(surnames)) {
@@ -137,7 +130,7 @@ export async function POST(request: Request) {
   if (!/^\S+@\S+\.\S+$/.test(email)) {
     return NextResponse.json({ message: "L'adreça electrònica no és vàlida." }, { status: 400 });
   }
-  if (!isValidPhoneNumber(phonePrefix, phone)) {
+  if (!isValidPhoneNumber(phone)) {
     return NextResponse.json({ message: "El número de telèfon no és vàlid." }, { status: 400 });
   }
 
@@ -178,7 +171,7 @@ export async function POST(request: Request) {
     `DNI/NIE: ${dniNie.toUpperCase()}`,
     `Data de naixement: ${birthDate}`,
     `Correu electrònic: ${email}`,
-    `Telèfon de contacte: ${phonePrefix} ${normalisePhone(phone)}`,
+    `Telèfon de contacte: ${normalisePhone(phone)}`,
     attachment ? `Autorització de tutors legals adjunta: ${attachment.name}` : "Autorització de tutors legals: no requerida",
   ].join("\n");
 

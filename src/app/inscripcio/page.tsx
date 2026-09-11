@@ -5,8 +5,8 @@ export default function InscripcioPage() {
   return (
     <main className="main-surface">
       <TopNav />
+      <div className="window-title">roltramuntana.cat :: contacte :: inscripció</div>
       <section className="inner-page" aria-labelledby="page-title">
-        <div className="window-title">roltramuntana.cat :: contacte :: inscripció</div>
         <p className="eyebrow">Rol Tramuntana</p>
         <h1 id="page-title">Inscriu-te</h1>
         <div className="membership-benefits">

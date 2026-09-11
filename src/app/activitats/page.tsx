@@ -4,8 +4,8 @@ export default function ActivitatsPage() {
   return (
     <main className="main-surface">
       <TopNav current="activitats" />
+      <div className="window-title">roltramuntana.cat :: activitats</div>
       <section className="inner-page" aria-labelledby="page-title">
-        <div className="window-title">roltramuntana.cat :: activitats</div>
         <p className="eyebrow">Rol Tramuntana</p>
         <h1 id="page-title">Activitats</h1>
         <p>Aquí hi trobaràs les properes partides, jornades i activitats de l&apos;associació.</p>

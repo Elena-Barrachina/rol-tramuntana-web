@@ -67,7 +67,11 @@
   border-left: 3px solid var(--custard);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
+  list-style: disc;
 }
+
+.type-list > li { padding-left: .15rem; }
+.type-list > li + li { margin-top: .25rem; }
 
 @utility type-nav {
   font-family: Arial, Helvetica, sans-serif;

@@ -95,11 +95,7 @@ button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
 .eyebrow { margin: 0 0 .45rem; color: var(--teal); font-size: .76rem; font-weight: 700; letter-spacing: .12em; }
 
 .home-panel {
-  width: calc(100% - 40px);
-  max-width: 900px;
-  margin: 28px auto;
-  border: 2px solid var(--carbon);
-  background: var(--snow);
+  width: 100%;
 }
 
 .home-content {
@@ -125,17 +121,14 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
 .inner-page > p { max-width: 40rem; margin: 0; font-size: 1.06rem; line-height: 1.65; }
 
 .inner-page {
-  width: calc(100% - 40px);
-  max-width: 900px;
-  margin: 28px auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   padding: clamp(26px, 5vw, 50px);
   padding-bottom: max(5svh, 50px);
-  border: 2px solid var(--carbon);
-  background: var(--snow);
   text-align: left;
 }
 
-.inner-page > .window-title { margin: clamp(-50px, -5vw, -26px) clamp(-50px, -5vw, -26px) clamp(26px, 5vw, 50px); }
 .inner-page > h1 { margin-bottom: 1rem; }
 
 /* Contact form. */
@@ -156,12 +149,16 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
 }
 .membership-benefits p { margin: 0 0 1rem; line-height: 1.5; }
 .membership-benefits h2 { margin: 0 0 .6rem; font-size: 1rem; line-height: 1.35; }
-.membership-benefits-list { margin: 0; padding-left: 1.25rem; list-style: disc; }
+.membership-benefits-list {
+  margin: 0;
+  padding-left: 2rem;
+  border-left: 3px solid var(--snow);
+  list-style: disc;
+}
 .membership-benefits-list li { padding-left: .15rem; line-height: 1.5; }
 .membership-benefits-list li + li { margin-top: .25rem; }
 
 .form-field { margin-bottom: 1rem; }
-.phone-fields { display: grid; grid-template-columns: minmax(5rem, .3fr) minmax(0, 1fr); gap: .75rem; }
 .form-field label { display: block; margin-bottom: .35rem; color: var(--carbon); font-size: .9rem; font-weight: 700; }
 .form-field input,
 .form-field textarea {
@@ -291,7 +288,7 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
   .brand-name span { font-size: .75rem; }
   .site-nav li { flex-basis: 33.333%; }
   .home-panel,
-  .inner-page { width: calc(100% - 24px); margin: 12px auto; }
+  .inner-page { width: 100%; margin: 0; }
   .home-content { grid-template-columns: 1fr; gap: 20px; padding: 24px; padding-bottom: max(5svh, 54px); }
   .home-logo { min-height: 185px; }
   .post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }

@@ -4,9 +4,9 @@ export default function QuiSomPage() {
   return (
     <main className="main-surface">
       <TopNav current="qui-som" />
+      <div className="window-title">roltramuntana.cat :: qui som</div>
 
       <section className="inner-page" aria-labelledby="page-title">
-        <div className="window-title">roltramuntana.cat :: qui som</div>
         <p className="eyebrow">Rol Tramuntana</p>
         <h1 id="page-title" className="type-page-title">
           Qui som
@@ -20,13 +20,13 @@ export default function QuiSomPage() {
 
         <ul className="type-list">
           <li>
-            &bull; Difondre i donar suport a els jocs de rol com a alternativa
+            Difondre i donar suport a els jocs de rol com a alternativa
             d&apos;oci.
           </li>
-          <li>&bull; Ensenyar i desenvolupar jocs de rol.</li>
-          <li>&bull; Crear un fons biliografic.</li>
+          <li>Ensenyar i desenvolupar jocs de rol.</li>
+          <li>Crear un fons biliografic.</li>
           <li>
-            &bull; Organitzar diferents activitats relacionades amb el món de
+            Organitzar diferents activitats relacionades amb el món de
             rol.
           </li>
         </ul>
@@ -64,22 +64,22 @@ export default function QuiSomPage() {
         <h2 className="type-section-title">Activitats</h2>
         <ul className="type-list">
           <li>
-            &bull; <strong>Partides de rol:</strong> dirigides tant per a socis com per directors
+            <strong>Partides de rol:</strong> dirigides tant per a socis com per directors
             de joc d&apos;arreu del país, i obertes a tot el públic que s&apos;hi vulgui
             apuntar.
           </li>
           <li>
-            &bull; <strong>Rol en viu:</strong> varietat de rol similar a una obra de teatre, on
+            <strong>Rol en viu:</strong> varietat de rol similar a una obra de teatre, on
             la improvisació i les interaccions orgàniques substitueixen als daus
             a l&apos;hora de contar la història i on els jugadors van attretzats com
             els seus personatges.
           </li>
           <li>
-            &bull; <strong>Jocs de taula:</strong> partides de jocs de taula diversos amb
+            <strong>Jocs de taula:</strong> partides de jocs de taula diversos amb
             mecàniques i temàtiques molt variades.
           </li>
           <li>
-            &bull; <strong>Jornades temàtiques:</strong> un conjunt d&apos;activitats lúdiques d&apos;una
+            <strong>Jornades temàtiques:</strong> un conjunt d&apos;activitats lúdiques d&apos;una
             ambientació concreta. Jocs de rol, jocs de taula, tallers,
             visualització de pel·lícules, etc. Tot relacionat amb el tema
             escollit.

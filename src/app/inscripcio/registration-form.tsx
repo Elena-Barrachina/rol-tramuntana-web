@@ -47,14 +47,8 @@ function normalisePhone(value: string) {
   return value.replace(/[\s().-]/g, "");
 }
 
-function isValidPhoneNumber(prefix: string, phone: string) {
-  if (!/^\+\d{1,3}$/.test(prefix)) return false;
-
-  const digits = normalisePhone(phone);
-  if (!/^\d+$/.test(digits)) return false;
-  if (prefix === "+34") return /^[6789]\d{8}$/.test(digits);
-
-  return digits.length >= 4 && digits.length <= 15 - (prefix.length - 1);
+function isValidPhoneNumber(phone: string) {
+  return /^[6789]\d{8}$/.test(normalisePhone(phone));
 }
 
 export function RegistrationForm() {
@@ -78,14 +72,8 @@ export function RegistrationForm() {
     setDniError(value && !isValidDniNie(value) ? "Introdueix un DNI o NIE espanyol vàlid." : "");
   }
 
-  function validatePhone(prefix: string, phone: string) {
-    setPhoneError(
-      prefix && phone && !isValidPhoneNumber(prefix, phone)
-        ? prefix === "+34"
-          ? "Introdueix un número espanyol vàlid de 9 xifres."
-          : "Introdueix un prefix i un número de telèfon vàlids."
-        : "",
-    );
+  function validatePhone(phone: string) {
+    setPhoneError(phone && !isValidPhoneNumber(phone) ? "Introdueix un número espanyol vàlid de 9 xifres." : "");
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -94,7 +82,6 @@ export function RegistrationForm() {
     const formData = new FormData(form);
     const dni = formData.get("dniNie");
     const birthDate = formData.get("birthDate");
-    const phonePrefix = formData.get("phonePrefix");
     const phone = formData.get("phone");
     const age = typeof birthDate === "string" ? getAge(birthDate) : undefined;
 
@@ -109,15 +96,10 @@ export function RegistrationForm() {
     }
 
     if (
-      typeof phonePrefix !== "string" ||
       typeof phone !== "string" ||
-      !isValidPhoneNumber(phonePrefix, phone)
+      !isValidPhoneNumber(phone)
     ) {
-      setPhoneError(
-        phonePrefix === "+34"
-          ? "Introdueix un número espanyol vàlid de 9 xifres."
-          : "Introdueix un prefix i un número de telèfon vàlids.",
-      );
+      setPhoneError("Introdueix un número espanyol vàlid de 9 xifres.");
       return;
     }
 
@@ -229,48 +211,22 @@ export function RegistrationForm() {
         <label htmlFor="registration-email">Correu electrònic</label>
         <input id="registration-email" name="email" type="email" autoComplete="email" required maxLength={254} />
       </div>
-      <div className="phone-fields">
-        <div className="form-field">
-          <label htmlFor="registration-phone-prefix">Prefix</label>
-          <input
-            id="registration-phone-prefix"
-            name="phonePrefix"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel-country-code"
-            defaultValue="+34"
-            required
-            maxLength={4}
-            pattern="\+\d{1,3}"
-            title="Introdueix un prefix internacional, com +34."
-            aria-describedby={phoneError ? "registration-phone-error" : undefined}
-            aria-invalid={Boolean(phoneError)}
-            onBlur={(event) => {
-              const phone = event.currentTarget.form?.elements.namedItem("phone");
-              validatePhone(event.currentTarget.value, phone instanceof HTMLInputElement ? phone.value : "");
-            }}
-          />
-        </div>
-        <div className="form-field">
-          <label htmlFor="registration-phone">Telèfon de contacte</label>
-          <input
-            id="registration-phone"
-            name="phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel-national"
-            required
-            maxLength={20}
-            pattern="[\d\s().-]+"
-            title="Introdueix només xifres, espais, punts, parèntesis o guionets."
-            aria-describedby={phoneError ? "registration-phone-error" : undefined}
-            aria-invalid={Boolean(phoneError)}
-            onBlur={(event) => {
-              const prefix = event.currentTarget.form?.elements.namedItem("phonePrefix");
-              validatePhone(prefix instanceof HTMLInputElement ? prefix.value : "", event.currentTarget.value);
-            }}
-          />
-        </div>
+      <div className="form-field">
+        <label htmlFor="registration-phone">Telèfon de contacte</label>
+        <input
+          id="registration-phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel-national"
+          required
+          maxLength={20}
+          pattern="[\d\s().-]+"
+          title="Introdueix un número espanyol de 9 xifres."
+          aria-describedby={phoneError ? "registration-phone-error" : undefined}
+          aria-invalid={Boolean(phoneError)}
+          onBlur={(event) => validatePhone(event.currentTarget.value)}
+        />
       </div>
       {phoneError ? <p className="field-error" id="registration-phone-error">{phoneError}</p> : null}
       <div className="form-honeypot" aria-hidden="true">

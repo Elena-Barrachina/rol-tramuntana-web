@@ -7,8 +7,8 @@ export default function Home() {
     <main className="main-surface">
       <a className="skip-link" href="#contingut">Salta al contingut principal</a>
       <TopNav current="home" />
+      <div className="window-title">roltramuntana.cat :: pàgina principal</div>
       <section className="home-panel" id="contingut" aria-labelledby="landing-title">
-        <div className="window-title">roltramuntana.cat :: pàgina principal</div>
         <div className="home-content">
           <div className="home-logo">
             <Image src="/brand/logo_b_trans.svg" alt="Logotip de Rol Tramuntana" width={260} height={282} priority />
