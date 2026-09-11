@@ -1,4 +1,5 @@
 import { TopNav } from "../top-nav";
+import { ContactForm } from "./contact-form";
 
 export default function ContactePage() {
   return (
@@ -8,7 +9,8 @@ export default function ContactePage() {
         <div className="window-title">roltramuntana.cat :: contacte</div>
         <p className="eyebrow">Rol Tramuntana</p>
         <h1 id="page-title">Contacte</h1>
-        <p>Aquí hi haurà les vies per posar-se en contacte amb l&apos;associació.</p>
+        <p>Escriu-nos i et respondrem tan aviat com puguem.</p>
+        <ContactForm />
       </section>
     </main>
   );

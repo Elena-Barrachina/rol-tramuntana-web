@@ -1,11 +1,16 @@
 @import "tailwindcss";
 @import "../styles/theme.css";
+@import "../styles/typography.css";
 
 :root { color-scheme: light; }
 
 * { box-sizing: border-box; }
 
-html { min-width: 320px; scroll-behavior: smooth; }
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable both-edges;
+}
 
 body {
   min-width: 320px;
@@ -101,17 +106,14 @@ button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
   display: grid;
   grid-template-columns: minmax(180px, .75fr) minmax(0, 1.25fr);
   gap: 28px;
-  align-items: center;
+  align-items: stretch;
   padding: clamp(24px, 5vw, 54px);
   padding-bottom: max(5svh, 54px);
 }
 
 .home-logo {
   display: grid;
-  min-height: 245px;
   place-items: center;
-  border: 2px solid var(--carbon);
-  background: var(--custard);
 }
 
 .home-logo img { width: min(75%, 240px); height: auto; }
@@ -136,10 +138,59 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
 .inner-page > .window-title { margin: clamp(-50px, -5vw, -26px) clamp(-50px, -5vw, -26px) clamp(26px, 5vw, 50px); }
 .inner-page > h1 { margin-bottom: 1rem; }
 
+/* Contact form. */
+.contact-form {
+  max-width: 40rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 2px solid var(--carbon);
+  background: var(--custard);
+}
+
+.form-field { margin-bottom: 1rem; }
+.form-field label { display: block; margin-bottom: .35rem; color: var(--carbon); font-size: .9rem; font-weight: 700; }
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: .55rem .6rem;
+  border: 2px inset var(--snow);
+  border-radius: 0;
+  background: var(--snow);
+  color: var(--carbon);
+  font: inherit;
+}
+
+.form-field textarea { resize: vertical; }
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--teal); outline: 2px solid var(--teal); outline-offset: 1px; }
+.contact-form button {
+  min-height: 2.35rem;
+  padding: .45rem .8rem;
+  border: 2px solid var(--carbon);
+  border-radius: 0;
+  background: var(--teal);
+  box-shadow: 4px 4px 0 var(--walnut);
+  color: var(--snow);
+  cursor: pointer;
+  font: 700 .9rem Arial, Helvetica, sans-serif;
+}
+
+.contact-form button:hover { background: var(--cyan); color: var(--carbon); }
+.contact-form button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+  background: var(--cyan);
+  color: var(--carbon);
+}
+.contact-form button:disabled { cursor: wait; opacity: .7; }
+.form-status { margin: 1rem 0 0; padding: .5rem .65rem; border: 2px solid currentColor; font-weight: 700; }
+.form-status--success { color: var(--teal); background: var(--snow); }
+.form-status--error { color: var(--walnut); background: var(--snow); }
+.form-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
 /* Archive placeholders and Instagram post cards. */
-.archive { max-width: 960px; }
 .archive .page-copy { margin-bottom: 28px; }
-.post-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.post-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 
 .post-card {
   position: relative;
