@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { TopNav } from "../top-nav";
 import { ContactForm } from "./contact-form";
 
@@ -9,7 +10,9 @@ export default function ContactePage() {
         <div className="window-title">roltramuntana.cat :: contacte</div>
         <p className="eyebrow">Rol Tramuntana</p>
         <h1 id="page-title">Contacte</h1>
-        <p>Escriu-nos i et respondrem tan aviat com puguem.</p>
+        <Link className="membership-cta" href="/inscripcio">
+          Inscriu-te a Rol Tramuntana!
+        </Link>
         <ContactForm />
       </section>
     </main>

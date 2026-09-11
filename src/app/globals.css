@@ -147,7 +147,21 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
   background: var(--custard);
 }
 
+.membership-benefits {
+  max-width: 40rem;
+  margin: 0;
+  padding: .65rem .8rem;
+  border: 2px solid var(--carbon);
+  background: var(--custard);
+}
+.membership-benefits p { margin: 0 0 1rem; line-height: 1.5; }
+.membership-benefits h2 { margin: 0 0 .6rem; font-size: 1rem; line-height: 1.35; }
+.membership-benefits-list { margin: 0; padding-left: 1.25rem; list-style: disc; }
+.membership-benefits-list li { padding-left: .15rem; line-height: 1.5; }
+.membership-benefits-list li + li { margin-top: .25rem; }
+
 .form-field { margin-bottom: 1rem; }
+.phone-fields { display: grid; grid-template-columns: minmax(5rem, .3fr) minmax(0, 1fr); gap: .75rem; }
 .form-field label { display: block; margin-bottom: .35rem; color: var(--carbon); font-size: .9rem; font-weight: 700; }
 .form-field input,
 .form-field textarea {
@@ -163,7 +177,8 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
 .form-field textarea { resize: vertical; }
 .form-field input:focus,
 .form-field textarea:focus { border-color: var(--teal); outline: 2px solid var(--teal); outline-offset: 1px; }
-.contact-form button {
+.contact-form button,
+.membership-cta {
   min-height: 2.35rem;
   padding: .45rem .8rem;
   border: 2px solid var(--carbon);
@@ -175,21 +190,63 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
   font: 700 .9rem Arial, Helvetica, sans-serif;
 }
 
-.contact-form button:hover { background: var(--cyan); color: var(--carbon); }
-.contact-form button:active {
+.membership-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  margin: 0;
+  padding: .7rem 1.2rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+.home-membership-cta { margin-top: 1.5rem; }
+
+.contact-form button:hover,
+.membership-cta:hover { background: var(--cyan); color: var(--carbon); }
+.contact-form button:active,
+.membership-cta:active {
   transform: translate(4px, 4px);
   box-shadow: none;
   background: var(--cyan);
   color: var(--carbon);
 }
 .contact-form button:disabled { cursor: wait; opacity: .7; }
+.field-error,
+.field-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: .45rem;
+  margin: .35rem 0 0;
+  padding: .45rem .55rem;
+  border: 2px solid var(--walnut);
+  background: var(--snow);
+  color: var(--teal);
+  font-size: .85rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.field-error::before,
+.field-warning::before {
+  display: grid;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 1.1rem;
+  place-items: center;
+  content: "!";
+  background: var(--cyan);
+  color: var(--snow);
+  font-weight: 700;
+  line-height: 1;
+}
+.field-hint { margin: .35rem 0 0; font-size: .8rem; line-height: 1.4; }
 .form-status { margin: 1rem 0 0; padding: .5rem .65rem; border: 2px solid currentColor; font-weight: 700; }
 .form-status--success { color: var(--teal); background: var(--snow); }
 .form-status--error { color: var(--walnut); background: var(--snow); }
 .form-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Archive placeholders and Instagram post cards. */
-.archive .page-copy { margin-bottom: 28px; }
+.archive .post-grid { margin-top: 28px; }
 .post-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 
 .post-card {

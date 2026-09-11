@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { TopNav } from "./top-nav";
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
           <div className="home-copy">
             <h1 id="landing-title">Associació Cultural de Rol Tramuntana - Lleida</h1>
             <p>Impulsem els jocs de rol i de taula com una manera de compartir el lleure: per imaginar, cooperar, pensar i fer comunitat.</p>
+            <Link className="membership-cta home-membership-cta" href="/inscripcio">
+              Inscriu-te a Rol Tramuntana!
+            </Link>
           </div>
         </div>
       </section>

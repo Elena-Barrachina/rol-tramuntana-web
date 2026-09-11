@@ -23,11 +23,9 @@ export default function ArxiuPage() {
       <TopNav current="arxiu" />
       <section className="inner-page archive" aria-labelledby="page-title">
         <div className="window-title">roltramuntana.cat :: arxiu</div>
-        <div className="page-copy">
-          <p className="eyebrow">ROL TRAMUNTANA</p>
-          <h1 id="page-title">Arxiu</h1>
-          <p>Aquí trobaràs un recull de les publicacions i notícies més recents de l&apos;associació.</p>
-        </div>
+        <p className="eyebrow">Rol Tramuntana</p>
+        <h1 id="page-title">Arxiu</h1>
+        <p>Aquí trobaràs un recull de les publicacions i notícies més recents de l&apos;associació.</p>
         <div className="post-grid" aria-label="Publicacions d&apos;Instagram">
           {slots.map((post, index) => post ? <InstagramPost key={index} post={post} /> : <EmptyPost key={index} index={index} />)}
         </div>
