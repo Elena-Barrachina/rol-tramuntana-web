@@ -286,7 +286,7 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
   .brand { min-height: 80px; padding: 10px 14px; }
   .brand-name strong { font-size: 1.35rem; }
   .brand-name span { font-size: .75rem; }
-  .site-nav li { flex-basis: 33.333%; }
+  .site-nav li { flex: 1 0 33.333%; }
   .home-panel,
   .inner-page { width: 100%; margin: 0; }
   .home-content { grid-template-columns: 1fr; gap: 20px; padding: 24px; padding-bottom: max(5svh, 54px); }

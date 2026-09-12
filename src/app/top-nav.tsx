@@ -4,6 +4,7 @@ import Link from "next/link";
 type Section = "home" | "qui-som" | "activitats" | "arxiu" | "contacte";
 
 const sections: Array<{ href: string; label: string; id: Section }> = [
+  { href: "/", label: "Inici", id: "home" },
   { href: "/qui-som", label: "Qui som", id: "qui-som" },
   { href: "/activitats", label: "Activitats", id: "activitats" },
   { href: "/arxiu", label: "Arxiu", id: "arxiu" },

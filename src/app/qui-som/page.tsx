@@ -8,9 +8,7 @@ export default function QuiSomPage() {
 
       <section className="inner-page" aria-labelledby="page-title">
         <p className="eyebrow">Rol Tramuntana</p>
-        <h1 id="page-title" className="type-page-title">
-          Qui som
-        </h1>
+        <h1 id="page-title">Qui som</h1>
 
         <p className="type-body">
           Som una associació adreçada a totes aquelles persones que estiguin
