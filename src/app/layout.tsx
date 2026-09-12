@@ -7,6 +7,10 @@ export const metadata: Metadata = {
     template: "%s | Rol Tramuntana",
   },
   description: "Associació cultural de rol i jocs de taula de Lleida.",
+  icons: {
+    icon: [{ url: "/icons/logo_b_trans.svg", type: "image/svg+xml" }],
+    shortcut: ["/icons/logo_b_trans.svg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
