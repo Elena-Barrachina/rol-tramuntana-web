@@ -131,6 +131,33 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
 
 .inner-page > h1 { margin-bottom: 1rem; }
 
+/* Activities calendar. */
+.activities-calendar {
+  width: 100%;
+  margin-top: 1.75rem;
+  padding: .65rem;
+  border: 2px solid var(--walnut);
+  border-left: 2px solid var(--walnut);
+  background: var(--custard);
+}
+.activities-calendar h2 {
+  margin: 0 0 .65rem;
+  color: var(--teal);
+  font-size: 1.15rem;
+}
+.google-calendar {
+  width: 100%;
+  min-height: 43rem;
+  border: 2px solid var(--carbon);
+  background: var(--snow);
+}
+.google-calendar--agenda { display: none; }
+.calendar-empty {
+  margin-top: 1.75rem !important;
+  color: var(--walnut);
+  font-weight: 700;
+}
+
 /* Contact form. */
 .contact-form {
   max-width: 40rem;
@@ -292,6 +319,8 @@ h1 { margin: 0 0 1rem; color: var(--carbon); font-size: clamp(2rem, 6vw, 4rem); 
   .home-content { grid-template-columns: 1fr; gap: 20px; padding: 24px; padding-bottom: max(5svh, 54px); }
   .home-logo { min-height: 185px; }
   .post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .google-calendar--month { display: none; }
+  .google-calendar--agenda { display: block; min-height: 38rem; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
